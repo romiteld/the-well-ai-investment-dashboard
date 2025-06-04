@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Investment Strategy - The Well Recruiting Solutions | Crafted by Daniel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            --warning: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --text-muted: rgba(255, 255, 255, 0.5);
+            --blue: #00d4ff;
+            --purple: #8b5cf6;
+            --green: #10b981;
+            --pink: #f472b6;
+        }
+
+```
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--dark-bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* Animated Background */
+    .bg-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 50%, var(--dark-bg) 100%);
+    }
+
+    .bg-animated {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 40% 60%, rgba(240, 147, 251, 0.1) 0%, transparent 40%);
+        animation: bgFlow 20s ease-in-out infinite;
+    }
+
+    @keyframes bgFlow {
+        0%, 100% { transform: translateX(0) translateY(0); }
+        25% { transform: translateX(-30px) translateY(-20px); }
+        50% { transform: translateX(20px) translateY(-30px); }
+        75% { transform: translateX(-10px) translateY(20px); }
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    /* Glass Card */
+    .glass-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 40px;
+        margin: 30px 0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .glass-card:hover::before {
+        opacity: 1;
+    }
+
+    .glass-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: titlePulse 4s ease-in-out infinite;
+        letter-spacing: -0.02em;
+    }
+
+    @keyframes titlePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 40px;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        color: var(--text-secondary);
+    }
+
+    .hero-cta {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 16px 32px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--blue);
+        color: var(--blue);
+    }
+
+    .btn-secondary:hover {
+        background: var(--blue);
+        color: var(--dark-bg);
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Metrics Grid */
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+    }
+
+    .metric-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 35px;
+        text-align: center;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .metric-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--primary);
+        transition: height 0.3s ease;
+    }
+
+    .metric-card:hover::before {
+        height: 100%;
+        opacity: 0.1;
+    }
+
+    .metric-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .metric-value {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: var(--primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 12px;
+    }
+
+    .metric-label {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .metric-description {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* ROI Calculator */
+    .roi-calculator {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 50px;
+        margin: 60px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .scenario-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px;
+        border-radius: 60px;
+    }
+
+    .scenario-tab {
+        padding: 14px 28px;
+        border: none;
+        background: transparent;
+        color: var(--text-secondary);
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .scenario-tab.active,
+    .scenario-tab:hover {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .roi-display {
+        font-size: 5rem;
+        font-weight: 900;
+        background: var(--success);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 30px 0;
+        animation: roiPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes roiPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    /* Chart Container */
+    .chart-container {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 40px 0;
+        height: 400px;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 60px 0;
+    }
+
+    .feature-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 35px;
+        transition: all 0.4s ease;
+        cursor: pointer;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        background: var(--primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .feature-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .feature-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Progress Bars */
+    .progress-container {
+        margin: 20px 0;
+    }
+
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    .progress-bar {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: var(--success);
+        border-radius: 50px;
+        transition: width 2s ease;
+        position: relative;
+    }
+
+    .progress-fill::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        margin-bottom: 30px;
+        background: var(--primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        text-align: center;
+        margin-bottom: 50px;
+        font-weight: 300;
+    }
+
+    /* Content */
+    .content-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin: 20px 0;
+    }
+
+    .content-heading {
+        color: var(--blue);
+        font-size: 1.5rem;
+        margin: 30px 0 15px;
+        font-weight: 700;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        border-left: 4px solid var(--blue);
+        padding: 25px;
+        margin: 30px 0;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Stats Banner */
+    .stats-banner {
+        background: var(--primary);
+        padding: 80px 50px;
+        margin: 80px 0;
+        border-radius: 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+    }
+
+    .stat-number {
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 10px;
+    }
+
+    .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    /* Timeline */
+    .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 60px auto;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--primary);
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        margin: 60px 0;
+        position: relative;
+    }
+
+    .timeline-item:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-content {
+        flex: 1;
+        padding: 30px;
+        background: var(--card-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        margin: 0 40px;
+        transition: all 0.4s ease;
+    }
+
+    .timeline-content:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .timeline-dot {
+        width: 24px;
+        height: 24px;
+        background: var(--primary);
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 3px solid var(--dark-bg);
+    }
+
+    /* Final CTA */
+    .final-cta {
+        background: var(--primary);
+        padding: 80px 50px;
+        border-radius: 30px;
+        text-align: center;
+        margin: 80px 0;
+    }
+
+    .cta-title {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+
+    .cta-description {
+        font-size: 1.3rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-btn {
+        padding: 18px 36px;
+        background: white;
+        color: var(--dark-bg);
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Branding */
+    .branding-footer {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid var(--border);
+        margin-top: 80px;
+        background: var(--card-bg);
+    }
+
+    .branding-footer a {
+        color: var(--blue);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .branding-footer a:hover {
+        color: var(--purple);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 3rem;
+        }
+        
+        .metrics-grid,
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .timeline::before {
+            left: 20px;
+        }
+        
+        .timeline-item {
+            flex-direction: row !important;
+            margin-left: 40px;
+        }
+        
+        .timeline-dot {
+            left: 20px;
+        }
+        
+        .timeline-content {
+            margin-left: 50px;
+            margin-right: 0;
+        }
+        
+        .scenario-tabs {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .glass-card {
+            padding: 25px;
+        }
+    }
+
+    /* Animations */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .loading {
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="bg-container"></div>
+    <div class="bg-animated"></div>
+
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="loading">
+            <h1 class="hero-title">AI Investment Strategy</h1>
+            <h2 class="hero-subtitle">Transformative ROI Analysis for The Well Recruiting Solutions</h2>
+            <p class="hero-description">
+                A comprehensive strategic analysis showcasing how AI implementation can deliver 
+                <strong style="color: var(--green);">99.3% to 320.5% Year 1 ROI</strong> 
+                while revolutionizing recruitment operations.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-primary" onclick="scrollToSection('roi-calculator')">
+                    <i class="fas fa-chart-line"></i> Explore ROI Calculator
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('implementation')">
+                    <i class="fas fa-rocket"></i> View Implementation
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- Executive Summary -->
+    <section class="glass-card fade-in">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="content-text">
+            The Well Recruiting Solutions stands poised to revolutionize financial advisor recruiting through strategic AI implementation, presenting unprecedented opportunities for operational transformation and competitive advantage. Founded in 2023 by Steve Perry, a veteran with 17+ years of financial services experience, the company operates in a rapidly evolving market where AI adoption has become critical for sustained success.
+        </div>
+        
+        <div class="highlight-box">
+            <strong style="color: var(--green); font-size: 1.1rem;">🎯 Key Finding:</strong> Our comprehensive analysis reveals compelling evidence that AI investment will propel The Well to industry leadership, with projected Year 1 ROI ranging from 99.3% to 320.5% across three strategic implementation scenarios. The financial advisor recruiting market faces an unprecedented talent shortage, with 100,000 advisors expected to retire by 2034, creating substantial growth opportunities for AI-enabled firms.
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value" data-count="65">65</div>
+                <div class="metric-label">Hours of Weekly Time Savings</div>
+                <div class="metric-description">Equivalent to 3,380 hours annually through AI automation</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" data-count="73">73%</div>
+                <div class="metric-label">of Firms Adopting AI Technologies</div>
+                <div class="metric-description">Industry-wide transformation creating competitive pressure</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" data-count="100">100K</div>
+                <div class="metric-label">Advisors Expected to Retire by 2034</div>
+                <div class="metric-description">Creating unprecedented recruitment opportunities</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive ROI Calculator -->
+    <section class="roi-calculator fade-in" id="roi-calculator">
+        <h2 class="section-title">Interactive ROI Calculator</h2>
+        <p class="section-subtitle">Explore three strategic implementation scenarios</p>
+        
+        <div class="scenario-tabs">
+            <button class="scenario-tab" data-scenario="conservative">
+                <i class="fas fa-shield-alt"></i> Conservative (25%)
+            </button>
+            <button class="scenario-tab active" data-scenario="moderate">
+                <i class="fas fa-balance-scale"></i> Moderate (50%)
+            </button>
+            <button class="scenario-tab" data-scenario="aggressive">
+                <i class="fas fa-rocket"></i> Aggressive (75%)
+            </button>
+        </div>
+        
+        <div class="roi-display" id="roi-display">209.9%</div>
+        <p style="font-size: 1.3rem; margin-bottom: 40px;">Year 1 Return on Investment</p>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value" id="revenue-increase">$750K</div>
+                <div class="metric-label">Additional Annual Revenue</div>
+                <div class="metric-description" id="revenue-description">Through enhanced efficiency and placement rates</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="payback-period">3.9</div>
+                <div class="metric-label">Months to Payback</div>
+                <div class="metric-description" id="payback-description">Rapid return on AI investment</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="efficiency-gain">50%</div>
+                <div class="metric-label">Operational Efficiency Improvement</div>
+                <div class="metric-description" id="efficiency-description">Across all recruiting processes</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Position -->
+    <section class="glass-card fade-in">
+        <h2 class="section-title">Market Position & Industry Transformation</h2>
+        
+        <div class="content-text">
+            <h3 class="content-heading">Current Financial Advisor Recruiting Landscape</h3>
+            <p>The financial advisor recruiting industry is experiencing unprecedented disruption driven by demographic shifts and technological advancement. The U.S. market encompasses over 283,000 advisors managing $132 trillion in assets under management, with 13% projected job growth through 2033.</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">283K</div>
+                <div class="metric-label">Total Advisors in US Market</div>
+                <div class="metric-description">Managing $132 trillion in assets</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">44</div>
+                <div class="metric-label">Days Average Time-to-Fill</div>
+                <div class="metric-description">Industry-wide recruitment challenge</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$4.7K</div>
+                <div class="metric-label">Average Cost-per-Hire</div>
+                <div class="metric-description">Opportunity for AI optimization</div>
+            </div>
+        </div>
+
+        <div class="content-text">
+            <h3 class="content-heading">The Well's Strategic Positioning</h3>
+            <p>The Well Recruiting Solutions has established strong operational foundations since its 2023 launch, demonstrating impressive placement metrics across diverse client engagements. Success stories include screening 326 candidates in five months resulting in 5 hires, and scheduling 56 interviews in 70 days leading to 2 successful placements.</p>
+        </div>
+        
+        <div class="highlight-box">
+            <strong style="color: var(--purple);">🎯 Competitive Advantage:</strong> Current annual technology costs approximate $106,600, representing significant optimization potential through integrated AI solutions compared to established competitors including TERRANA GROUP (31+ years, 3000+ placements) and Diamond Consultants (founded 1998).
+        </div>
+    </section>
+
+    <!-- AI Investment Opportunities -->
+    <section class="glass-card fade-in">
+        <h2 class="section-title">AI Investment Opportunities</h2>
+        <p class="section-subtitle">Strategic implementation across core recruiting processes</p>
+        
+        <div class="content-text">
+            <p>The recruiting industry is experiencing rapid AI adoption, with 73% of companies implementing recruitment automation and 79% of recruiters utilizing AI tools for candidate screening. Leading organizations report 35% reduction in time-to-hire and 44% improvement in candidate acceptance rates through AI-enhanced processes.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                <div class="feature-title">Automated Resume Screening</div>
+                <div class="feature-description">93% accuracy in candidate evaluation with 85% reduction in screening time</div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Accuracy Rate</span>
+                        <span>93%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 93%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <div class="feature-title">Intelligent Candidate Matching</div>
+                <div class="feature-description">Predictive analytics for placement success with 44% improvement in acceptance rates</div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Improvement Rate</span>
+                        <span>44%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <div class="feature-title">Conversational AI Engagement</div>
+                <div class="feature-description">Enhanced candidate communication with 60% reduction in administrative overhead</div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Efficiency Gain</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="feature-title">Predictive Analytics Platform</div>
+                <div class="feature-description">Data-driven insights for recruitment strategy optimization and market intelligence</div>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Prediction Accuracy</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong style="color: var(--blue);">🚀 Microsoft 365 Integration:</strong> Optimal foundation for AI-enhanced recruiting operations through native integration between Teams, Outlook, SharePoint, and Power Platform components. Enables automated LinkedIn outreach, AI-powered email campaigns, intelligent calendar scheduling, and comprehensive candidate tracking.
+        </div>
+    </section>
+
+    <!-- Financial Impact Charts -->
+    <section class="glass-card fade-in">
+        <h2 class="section-title">Financial Impact & Projections</h2>
+        
+        <div class="chart-container">
+            <canvas id="roiChart"></canvas>
+        </div>
+        
+        <div class="chart-container">
+            <canvas id="efficiencyChart"></canvas>
+        </div>
+
+        <div class="content-text">
+            <h3 class="content-heading">Investment Cost Structure</h3>
+            <p>The proposed AI integration strategy requires total annual investment of $264,030, comprising AI specialist salary of $200,000, Microsoft 365 licensing at $5,280, and development/maintenance costs of $15,000. This investment represents strategic capability building rather than simple cost replacement.</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">$264K</div>
+                <div class="metric-label">Total Annual Investment</div>
+                <div class="metric-description">AI specialist, licensing, and development costs</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">$107K</div>
+                <div class="metric-label">Third-party Tools Eliminated</div>
+                <div class="metric-description">Zoho CRM, JustCall, and additional tools</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">92%</div>
+                <div class="metric-label">AI Deployments with Positive ROI</div>
+                <div class="metric-description">Industry benchmark for successful implementations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Long-term Impact -->
+    <section class="stats-banner fade-in">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Long-Term Financial Impact</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">Five-year cost trajectory analysis demonstrates compelling AI investment advantages</p>
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">$607K</div>
+                    <div class="stat-label">Five-Year Third-Party Costs</div>
+                </div>
+                <div>
+                    <div class="stat-number">$214K</div>
+                    <div class="stat-label">Cumulative Savings by Year 5</div>
+                </div>
+                <div>
+                    <div class="stat-number">2.8</div>
+                    <div class="stat-label">Years to Break-Even</div>
+                </div>
+                <div>
+                    <div class="stat-number">13%</div>
+                    <div class="stat-label">Annual Market Growth Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Strategy -->
+    <section class="glass-card fade-in" id="implementation">
+        <h2 class="section-title">Implementation Strategy</h2>
+        <p class="section-subtitle">Phased deployment approach minimizing risk while maximizing value realization</p>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4 style="color: var(--blue); margin-bottom: 10px;">Phase 1: Foundation (Months 1-6)</h4>
+                    <p><strong>Microsoft 365 Optimization & Basic Automation</strong></p>
+                    <p>Infrastructure setup, automated email campaigns, intelligent calendar scheduling, and enhanced candidate relationship management. Staff training initiation and process documentation.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4 style="color: var(--green); margin-bottom: 10px;">Phase 2: Integration (Months 7-18)</h4>
+                    <p><strong>AI Specialist Integration & Custom Development</strong></p>
+                    <p>AI specialist onboarding, core AI capabilities deployment including automated screening and intelligent matching algorithms. Performance measurement and optimization.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4 style="color: var(--purple); margin-bottom: 10px;">Phase 3: Advanced AI (Months 19-36)</h4>
+                    <p><strong>Competitive Differentiation & Market Leadership</strong></p>
+                    <p>Advanced predictive analytics, automated market intelligence, sophisticated client matching algorithms, and potential technology licensing opportunities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong style="color: var(--purple);">🛡️ Risk Mitigation:</strong> Comprehensive strategies address change management challenges, technical complexity, and competitive response through staff training, phased rollout approaches, and maintaining third-party tool access during transition periods. Data security and privacy frameworks ensure protection of candidate personal information and client proprietary data.
+        </div>
+    </section>
+
+    <!-- Strategic Recommendations -->
+    <section class="glass-card fade-in">
+        <h2 class="section-title">Strategic Recommendations</h2>
+        
+        <div class="content-text">
+            <h3 class="content-heading">Immediate Action Plan</h3>
+            <p>The analysis strongly recommends immediate AI implementation under the Moderate scenario, targeting 50% efficiency gains and 209.9% Year 1 ROI. This balanced approach provides substantial returns while maintaining manageable implementation risk.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="feature-title">AI Specialist Recruitment</div>
+                <div class="feature-description">Immediate hiring of AI specialist ($200K annually) to lead implementation and custom development initiatives</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                <div class="feature-title">Infrastructure Assessment</div>
+                <div class="feature-description">Comprehensive Microsoft 365 evaluation and optimization planning for seamless AI integration</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <div class="feature-title">Stakeholder Alignment</div>
+                <div class="feature-description">Team preparation and change management strategy implementation for smooth AI adoption</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-contract"></i></div>
+                <div class="feature-title">Vendor Negotiations</div>
+                <div class="feature-description">Microsoft licensing optimization and third-party tool transition planning ($107K annual savings)</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong style="color: var(--green);">🎯 Market Opportunity:</strong> Unprecedented demand driven by the projected 100,000 advisor shortage by 2034, 13% annual market growth, and increasing complexity of financial advisory services. The confluence of market opportunity, technology readiness, and competitive necessity creates optimal conditions for AI implementation.
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta fade-in">
+        <div class="cta-title">Transform Your Recruiting Future with AI</div>
+        <p class="cta-description">
+            The strategic implementation of AI technology represents not merely an operational upgrade but a fundamental transformation positioning The Well Recruiting Solutions for sustained market leadership in the rapidly evolving financial advisor recruiting industry.
+        </p>
+        
+        <div class="cta-buttons">
+            <a href="https://thewell.solutions" target="_blank" class="cta-btn">
+                <i class="fas fa-rocket"></i> Visit The Well Solutions
+            </a>
+            <a href="https://craftedbydaniel.com" target="_blank" class="cta-btn">
+                <i class="fas fa-palette"></i> View Our Portfolio
+            </a>
+        </div>
+        
+        <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; font-size: 1.1rem;">
+            <div><strong>🚀 Compelling ROI:</strong><br>99.3% to 320.5% Year 1 Returns</div>
+            <div><strong>⚡ Substantial Efficiency:</strong><br>65 Hours Weekly Time Savings</div>
+            <div><strong>🏆 Competitive Advantage:</strong><br>Proprietary AI Capabilities</div>
+            <div><strong>📈 Market Leadership:</strong><br>Industry-Best Performance Metrics</div>
+        </div>
+    </section>
+</div>
+
+<!-- Branding Footer -->
+<footer class="branding-footer">
+    <p>Crafted with precision and innovation by <a href="https://craftedbydaniel.com" target="_blank">Daniel at craftedbydaniel.com</a></p>
+    <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">
+        Transforming business insights into compelling visual experiences
+    </p>
+</footer>
+
+<script>
+    // ROI Scenario Data
+    const scenarios = {
+        conservative: {
+            roi: '99.3%',
+            revenue: '$375K',
+            payback: '6.0',
+            efficiency: '25%',
+            revenueDesc: 'Conservative growth projections',
+            paybackDesc: 'Steady return timeline',
+            efficiencyDesc: 'Foundational automation benefits'
+        },
+        moderate: {
+            roi: '209.9%',
+            revenue: '$750K',
+            payback: '3.9',
+            efficiency: '50%',
+            revenueDesc: 'Balanced growth with proven strategies',
+            paybackDesc: 'Accelerated return timeline',
+            efficiencyDesc: 'Comprehensive process optimization'
+        },
+        aggressive: {
+            roi: '320.5%',
+            revenue: '$1.125M',
+            payback: '2.9',
+            efficiency: '75%',
+            revenueDesc: 'Exponential growth through innovation',
+            paybackDesc: 'Rapid investment recovery',
+            efficiencyDesc: 'Revolutionary process transformation'
+        }
+    };
+
+    // Scenario Selector
+    document.querySelectorAll('.scenario-tab').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.scenario-tab').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const scenario = this.dataset.scenario;
+            const data = scenarios[scenario];
+            
+            document.getElementById('roi-display').textContent = data.roi;
+            document.getElementById('revenue-increase').textContent = data.revenue;
+            document.getElementById('payback-period').textContent = data.payback;
+            document.getElementById('efficiency-gain').textContent = data.efficiency;
+            
+            document.getElementById('revenue-description').textContent = data.revenueDesc;
+            document.getElementById('payback-description').textContent = data.paybackDesc;
+            document.getElementById('efficiency-description').textContent = data.efficiencyDesc;
+            
+            updateROIChart(scenario);
+        });
+    });
+
+    // Smooth Scrolling
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    // Chart.js Setup
+    Chart.defaults.color = '#ffffff';
+    Chart.defaults.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+
+    // ROI Chart
+    const roiCtx = document.getElementById('roiChart');
+    if (roiCtx) {
+        const roiChart = new Chart(roiCtx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Conservative', 'Moderate', 'Aggressive'],
+                datasets: [{
+                    label: 'Year 1 ROI (%)',
+                    data: [99.3, 209.9, 320.5],
+                    backgroundColor: [
+                        'rgba(103, 126, 234, 0.8)',
+                        'rgba(79, 172, 254, 0.8)',
+                        'rgba(16, 185, 129, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(103, 126, 234, 1)',
+                        'rgba(79, 172, 254, 1)',
+                        'rgba(16, 185, 129, 1)'
+                    ],
+                    borderWidth: 2,
+                    borderRadius: 12
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#ffffff', font: { size: 14, weight: 'bold' } }
+                    },
+                    title: {
+                        display: true,
+                        text: 'ROI Comparison Across Implementation Scenarios',
+                        color: '#ffffff',
+                        font: { size: 18, weight: 'bold' }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: {
+                            color: '#ffffff',
+                            callback: function(value) { return value + '%'; }
+                        }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { color: '#ffffff' }
+                    }
+                },
+                animation: { duration: 2000, easing: 'easeOutQuart' }
+            }
+        });
+
+        // Update function
+        window.updateROIChart = function(scenario) {
+            const scenarioData = {
+                conservative: [99.3, 0, 0],
+                moderate: [0, 209.9, 0],
+                aggressive: [0, 0, 320.5]
+            };
+            roiChart.data.datasets[0].data = scenarioData[scenario];
+            roiChart.update('active');
+        };
+    }
+
+    // Efficiency Chart
+    const efficiencyCtx = document.getElementById('efficiencyChart');
+    if (efficiencyCtx) {
+        new Chart(efficiencyCtx.getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Administrative Tasks', 'Candidate Sourcing', 'Resume Screening', 'Interview Scheduling', 'Other Activities'],
+                datasets: [{
+                    data: [20, 15, 11, 11, 8],
+                    backgroundColor: [
+                        'rgba(103, 126, 234, 0.8)',
+                        'rgba(79, 172, 254, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(244, 114, 182, 0.8)',
+                        'rgba(245, 87, 108, 0.8)'
+                    ],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#ffffff', padding: 20 }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Weekly Time Savings Distribution (Hours)',
+                        color: '#ffffff',
+                        font: { size: 18, weight: 'bold' }
+                    }
+                },
+                animation: { duration: 2000, easing: 'easeOutQuart' }
+            }
+        });
+    }
+
+    // Scroll Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Dashboard loaded successfully!');
+        
+        // Set default moderate scenario
+        if (typeof updateROIChart === 'function') {
+            updateROIChart('moderate');
+        }
+    });
+</script>
+```
+
+</body>
+</html>
