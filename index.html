@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Investment Strategy - The Well Recruiting Solutions | Crafted by Daniel</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -177,6 +176,7 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        line-height: 1;
     }
 
     .btn-primary {
@@ -301,6 +301,9 @@
         transition: all 0.3s ease;
         font-weight: 600;
         font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .scenario-tab.active,
@@ -362,12 +365,10 @@
 
     .feature-icon {
         font-size: 3rem;
-        background: var(--primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
         margin-bottom: 20px;
         transition: transform 0.3s ease;
+        line-height: 1;
+        display: block;
     }
 
     .feature-card:hover .feature-icon {
@@ -486,22 +487,43 @@
         overflow: hidden;
     }
 
+    .stats-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .stats-banner > * {
+        position: relative;
+        z-index: 2;
+    }
+
     .stats-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 50px;
+        position: relative;
+        z-index: 2;
     }
 
     .stat-number {
         font-size: 4rem;
         font-weight: 900;
         margin-bottom: 10px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .stat-label {
         font-size: 1.1rem;
-        opacity: 0.9;
         font-weight: 500;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
     /* Timeline */
@@ -567,18 +589,39 @@
         border-radius: 30px;
         text-align: center;
         margin: 80px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .final-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 1;
+    }
+
+    .final-cta > * {
+        position: relative;
+        z-index: 2;
     }
 
     .cta-title {
         font-size: clamp(2rem, 4vw, 3.5rem);
         font-weight: 800;
         margin-bottom: 20px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .cta-description {
         font-size: 1.3rem;
         margin-bottom: 40px;
-        opacity: 0.9;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
     }
 
     .cta-buttons {
@@ -602,6 +645,7 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
+        line-height: 1;
     }
 
     .cta-btn:hover {
@@ -616,6 +660,7 @@
         border-top: 1px solid var(--border);
         margin-top: 80px;
         background: var(--card-bg);
+        backdrop-filter: blur(20px);
     }
 
     .branding-footer a {
@@ -627,6 +672,10 @@
 
     .branding-footer a:hover {
         color: var(--purple);
+    }
+
+    .branding-footer p {
+        color: var(--text);
     }
 
     /* Responsive */
@@ -662,6 +711,13 @@
         .scenario-tabs {
             flex-direction: column;
             gap: 10px;
+            align-items: center;
+        }
+
+        .scenario-tab {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
         }
 
         .cta-buttons {
@@ -671,6 +727,23 @@
 
         .glass-card {
             padding: 25px;
+        }
+
+        .stats-banner,
+        .final-cta {
+            padding: 50px 25px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+        }
+
+        .roi-display {
+            font-size: 3.5rem;
         }
     }
 
@@ -722,10 +795,10 @@
             </p>
             <div class="hero-cta">
                 <button class="btn btn-primary" onclick="scrollToSection('roi-calculator')">
-                    <i class="fas fa-chart-line"></i> Explore ROI Calculator
+                    📊 Explore ROI Calculator
                 </button>
                 <button class="btn btn-secondary" onclick="scrollToSection('implementation')">
-                    <i class="fas fa-rocket"></i> View Implementation
+                    🚀 View Implementation
                 </button>
             </div>
         </div>
@@ -770,13 +843,13 @@
         
         <div class="scenario-tabs">
             <button class="scenario-tab" data-scenario="conservative">
-                <i class="fas fa-shield-alt"></i> Conservative (25%)
+                🛡️ Conservative (25%)
             </button>
             <button class="scenario-tab active" data-scenario="moderate">
-                <i class="fas fa-balance-scale"></i> Moderate (50%)
+                ⚖️ Moderate (50%)
             </button>
             <button class="scenario-tab" data-scenario="aggressive">
-                <i class="fas fa-rocket"></i> Aggressive (75%)
+                🚀 Aggressive (75%)
             </button>
         </div>
         
@@ -850,7 +923,7 @@
 
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                <div class="feature-icon">🤖</div>
                 <div class="feature-title">Automated Resume Screening</div>
                 <div class="feature-description">93% accuracy in candidate evaluation with 85% reduction in screening time</div>
                 <div class="progress-container">
@@ -865,7 +938,7 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <div class="feature-icon">🧠</div>
                 <div class="feature-title">Intelligent Candidate Matching</div>
                 <div class="feature-description">Predictive analytics for placement success with 44% improvement in acceptance rates</div>
                 <div class="progress-container">
@@ -880,7 +953,7 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <div class="feature-icon">💬</div>
                 <div class="feature-title">Conversational AI Engagement</div>
                 <div class="feature-description">Enhanced candidate communication with 60% reduction in administrative overhead</div>
                 <div class="progress-container">
@@ -895,7 +968,7 @@
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="feature-icon">📈</div>
                 <div class="feature-title">Predictive Analytics Platform</div>
                 <div class="feature-description">Data-driven insights for recruitment strategy optimization and market intelligence</div>
                 <div class="progress-container">
@@ -954,8 +1027,8 @@
     <!-- Long-term Impact -->
     <section class="stats-banner fade-in">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Long-Term Financial Impact</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 50px; opacity: 0.9;">Five-year cost trajectory analysis demonstrates compelling AI investment advantages</p>
+            <h2 class="section-title" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);">Long-Term Financial Impact</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 50px; color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">Five-year cost trajectory analysis demonstrates compelling AI investment advantages</p>
             <div class="stats-grid">
                 <div>
                     <div class="stat-number">$607K</div>
@@ -1027,25 +1100,25 @@
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="feature-icon">👔</div>
                 <div class="feature-title">AI Specialist Recruitment</div>
                 <div class="feature-description">Immediate hiring of AI specialist ($200K annually) to lead implementation and custom development initiatives</div>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                <div class="feature-icon">⚙️</div>
                 <div class="feature-title">Infrastructure Assessment</div>
                 <div class="feature-description">Comprehensive Microsoft 365 evaluation and optimization planning for seamless AI integration</div>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <div class="feature-icon">🤝</div>
                 <div class="feature-title">Stakeholder Alignment</div>
                 <div class="feature-description">Team preparation and change management strategy implementation for smooth AI adoption</div>
             </div>
             
             <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-contract"></i></div>
+                <div class="feature-icon">📋</div>
                 <div class="feature-title">Vendor Negotiations</div>
                 <div class="feature-description">Microsoft licensing optimization and third-party tool transition planning ($107K annual savings)</div>
             </div>
@@ -1065,18 +1138,18 @@
         
         <div class="cta-buttons">
             <a href="https://thewell.solutions" target="_blank" class="cta-btn">
-                <i class="fas fa-rocket"></i> Visit The Well Solutions
+                🚀 Visit The Well Solutions
             </a>
             <a href="https://craftedbydaniel.com" target="_blank" class="cta-btn">
-                <i class="fas fa-palette"></i> View Our Portfolio
+                🎨 View Our Portfolio
             </a>
         </div>
         
-        <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; font-size: 1.1rem;">
-            <div><strong>🚀 Compelling ROI:</strong><br>99.3% to 320.5% Year 1 Returns</div>
-            <div><strong>⚡ Substantial Efficiency:</strong><br>65 Hours Weekly Time Savings</div>
-            <div><strong>🏆 Competitive Advantage:</strong><br>Proprietary AI Capabilities</div>
-            <div><strong>📈 Market Leadership:</strong><br>Industry-Best Performance Metrics</div>
+        <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; font-size: 1.1rem; position: relative; z-index: 2;">
+            <div style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"><strong>🚀 Compelling ROI:</strong><br>99.3% to 320.5% Year 1 Returns</div>
+            <div style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"><strong>⚡ Substantial Efficiency:</strong><br>65 Hours Weekly Time Savings</div>
+            <div style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"><strong>🏆 Competitive Advantage:</strong><br>Proprietary AI Capabilities</div>
+            <div style="color: #ffffff; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"><strong>📈 Market Leadership:</strong><br>Industry-Best Performance Metrics</div>
         </div>
     </section>
 </div>
